@@ -1,9 +1,11 @@
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+
 function Navbar() {
     return (
         <nav>
             <ul>
-                <li>Timer</li>
-                <li>Calendar</li>
+                <li><Link to="/">Your Timers</Link></li>
+                <li><Link to="/manage">Manage Timers</Link></li>
             </ul>
         </nav>
     )
