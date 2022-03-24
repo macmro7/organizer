@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 
 function Timer() {
-    const [seconds, setSeconds] = useState(72);
+    const [seconds, setSeconds] = useState(130);
+    const [minutes, setMinutes] = useState(Math.floor(seconds))
     const [isActive, setIsActive] = useState(false)
-
-    let year = new Date().getFullYear()
-    console.log("tutaj")
-    console.log(year)
 
     function startTimer() {
         setIsActive(prevIsActive => !prevIsActive)
@@ -26,17 +23,24 @@ function Timer() {
     });
 
     function showTime() {
-        let minutes = 0
-        if( seconds > 60) {
-            minutes = seconds / 60
-        }
-        console.log(minutes)
+        console.log('siema')
+        const minutes = Math.floor(seconds / 60)
+
+        /*if (seconds > 59) {
+
+            return `${minutes < 10 ? '0' + minutes : minutes} : ${seconds < 10 ? '0' + seconds - 60 * minutes : seconds - 60 * minutes}` 
+        } 
+        else {
+            return `00 : ${seconds}`
+        }*/
+
+        return `${minutes < 10 ? '0' + minutes : minutes} : ${seconds < 10 ? '0' + (seconds - 60 * minutes) : seconds - 60 * minutes}` 
     }
 
     return (
         <div className="timer"> 
             <div className="circle">
-                <h1 className="circle--timer">{seconds > 59 ? `${Math.floor(seconds / 60)} - ${seconds - 60}` : `00 : ${seconds}` }</h1>
+                <h1 className="circle--timer">{showTime()}</h1>
             <button onClick={startTimer}>{isActive ? "Stop" : "Start"}</button>
             </div>
             <input onChange={e => setSeconds(e.target.value)}></input>
