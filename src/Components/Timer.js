@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-function Timer() {
-    const [seconds, setSeconds] = useState(130);
+function Timer(props) {
+    const [seconds, setSeconds] = useState(props.seconds);
     const [isActive, setIsActive] = useState(false)
 
     function startTimer() {
@@ -10,21 +10,22 @@ function Timer() {
 
     useEffect(() => {
         let interval
+        
+        if (seconds === 0) {    // nie jestem pewien, czy to powinno byc wewnatrz useEffect
+            setIsActive(false)
+        }
 
-        if (isActive && seconds > 0) {
+        if (isActive) {
             interval = setInterval(() => {
                 setSeconds(prevSeconds => prevSeconds - 1);
             }, 1000);
         }
 
-        if (seconds === 0) {    // nie jestem pewien, czy to powinno byc wewnatrz useEffect
-            setIsActive(false)
-        }
         
         return () => clearInterval(interval);
     });
 
-    function showTime() { 
+    function showTime() {   // oblicza ile minut i sekund wyswietlic
         const minutes = Math.floor(seconds / 60)
         const secondsLeft = seconds - 60 * minutes
 
