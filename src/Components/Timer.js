@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 function Timer() {
     const [seconds, setSeconds] = useState(130);
-    const [minutes, setMinutes] = useState(Math.floor(seconds))
     const [isActive, setIsActive] = useState(false)
 
     function startTimer() {
@@ -22,9 +21,9 @@ function Timer() {
         return () => clearInterval(interval);
     });
 
-    function showTime() {
-        console.log('siema')
+    function showTime() { 
         const minutes = Math.floor(seconds / 60)
+        const secondsLeft = seconds - 60 * minutes
 
         /*if (seconds > 59) {
 
@@ -34,7 +33,7 @@ function Timer() {
             return `00 : ${seconds}`
         }*/
 
-        return `${minutes < 10 ? '0' + minutes : minutes} : ${seconds < 10 ? '0' + (seconds - 60 * minutes) : seconds - 60 * minutes}` 
+        return `${minutes < 10 ? '0' + minutes : minutes} : ${secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}` 
     }
 
     return (
