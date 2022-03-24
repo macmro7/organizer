@@ -6,16 +6,19 @@ function Timer() {
 
     function startTimer() {
         setIsActive(prevIsActive => !prevIsActive)
-        console.log(isActive)
     }
 
     useEffect(() => {
         let interval
 
-        if (isActive) {
+        if (isActive && seconds > 0) {
             interval = setInterval(() => {
                 setSeconds(prevSeconds => prevSeconds - 1);
             }, 1000);
+        }
+
+        if (seconds === 0) {    // nie jestem pewien, czy to powinno byc wewnatrz useEffect
+            setIsActive(false)
         }
         
         return () => clearInterval(interval);
@@ -25,15 +28,8 @@ function Timer() {
         const minutes = Math.floor(seconds / 60)
         const secondsLeft = seconds - 60 * minutes
 
-        /*if (seconds > 59) {
-
-            return `${minutes < 10 ? '0' + minutes : minutes} : ${seconds < 10 ? '0' + seconds - 60 * minutes : seconds - 60 * minutes}` 
-        } 
-        else {
-            return `00 : ${seconds}`
-        }*/
-
-        return `${minutes < 10 ? '0' + minutes : minutes} : ${secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}` 
+        return `${minutes < 10 ? '0' + minutes : minutes} : 
+                ${secondsLeft < 10 ? '0' + secondsLeft : secondsLeft}` 
     }
 
     return (
