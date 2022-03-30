@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react'
 
 import Navbar from "./Components/Navbar"
 import Timer from "./Components/Timer"
@@ -7,7 +8,7 @@ import ManageTimers from "./Components/ManageTimers"
 import './App.css';
 
 function App() {
-  const data = [
+  const [timers, setTimers] = useState([
       {
         id: 1,
         name: "Exercise 1",
@@ -18,9 +19,9 @@ function App() {
         name: "Exercise 2",
         seconds: 90
       }
-  ]
-
-  const timers = data.map(item => {
+  ])
+  
+  const timersList = timers.map(item => {
     return (
       <Timer 
         key={item.id}
@@ -29,13 +30,23 @@ function App() {
     )
   })
 
+  function handleClick(newTimer) {
+    setTimers(prevTimer => ([
+      ...prevTimer,
+      {
+        ...newTimer,
+        id: prevTimer.length + 1
+      }
+    ]))
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path="/" element={ timers } />
-          <Route path="manage" element={<ManageTimers timers={data}/>} />
+          <Route path="/" element={ timersList } />
+          <Route path="manage" element={<ManageTimers timers={ timers } handleClick={handleClick}/>} />
         </Routes>
       </BrowserRouter>
     </div>

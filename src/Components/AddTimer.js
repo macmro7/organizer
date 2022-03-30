@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-function AddTimer() {
+function AddTimer(props) {
     const [formData, setFormData] = useState (
         {
-            title: "",
-            time: ""
+            id: 3,
+            name: "",
+            seconds: ""
         }
     )
-
 
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -19,21 +19,26 @@ function AddTimer() {
     }
 
     function handleSubmit(event) {
+        props.handleClick(formData)
         event.preventDefault()
-        console.log(formData)
+        // setFormData({
+        //     id: '',
+        //     name: '',
+        //     seconds: ''
+        // })
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={ handleSubmit }>
             <input 
                 type="text"
-                name="title"
+                name="name"
                 value={formData.title}
                 onChange={handleChange}
             />
             <input 
                 type="time"
-                name="time"
+                name="seconds"
                 value={formData.time}
                 onChange={handleChange}
             />
