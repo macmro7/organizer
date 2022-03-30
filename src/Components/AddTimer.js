@@ -21,11 +21,11 @@ function AddTimer(props) {
     function handleSubmit(event) {
         props.handleClick(formData)
         event.preventDefault()
-        // setFormData({
-        //     id: '',
-        //     name: '',
-        //     seconds: ''
-        // })
+        setFormData({
+            id: '',
+            name: '',
+            seconds: ''
+        })
     }
 
     return (
@@ -33,13 +33,13 @@ function AddTimer(props) {
             <input 
                 type="text"
                 name="name"
-                value={formData.title}
+                value={formData.name}
                 onChange={handleChange}
             />
             <input 
-                type="time"
+                type="integer"
                 name="seconds"
-                value={formData.time}
+                value={formData.seconds}
                 onChange={handleChange}
             />
             <button>Add Timer</button>
