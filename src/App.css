@@ -8,6 +8,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(247, 244, 244);
 }
 
 nav {
@@ -38,6 +39,12 @@ nav a {
   flex-direction: column;
 
   padding: 3em;
+
+  margin: 10% 10%;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  --background-color: rgba(255, 211, 219, 0.445);
 }
 
 .circle {
@@ -55,4 +62,96 @@ nav a {
 .circle--timer {
   font-size: 50px;
 }
+
+/* ManageTimers */
+
+/*.timers--background {
+  border: 1em solid black;
+  width: 30em;
+  background-color: rgba(255, 213, 220, 0.877);
+  background-repeat: no-repeat;
+  background-size: 1em;
+}*/
+
+/*.timers--background {
+  display: absolute;
+  padding: 5em;
+  min-height: 10em;
+  height: 50%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+}*/
+
+.timers--list {
+  margin: 10% 10%;
+  padding: 2em;
+
+  display: flex;
+  align-items: center;
+  --justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  --background-color: rgba(255, 211, 219, 0.445);
+
+  max-height: 600px;
+  overflow: scroll;
+  
+  list-style-type: none;
+  
+}
+
+.timers--list li {
+  padding: 1em;
+  width: 90%;
+  border-bottom: 2px solid rgba(223, 223, 223, 0.226);
+}
+
+.add--timer {
+  margin: 10% 10%;
+  display: flex;
+  --justify-content: center;
+  justify-content: space-between;
+  --gap: 2em;
+
+  padding: 2em;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.add--timer--input {
+  border: none;   /* chyba cos zle z dziedziczeniem */
+  padding-left: 1em;
+  border-radius: 3px;
+  border-bottom: 3px solid rgba(22, 22, 22, 0.226);
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  outline: none;
+  max-width: 30%;
+}
+
+.add--timer--input:focus {
+  outline: none;
+  --background: rgb(247, 244, 244);;
+}
+
+.add--timer--input:hover, .add--timer--submit :hover {
+  background: rgb(247, 244, 244);
+  border-color: pink;
+}
+
+.add--timer--submit :hover {
+  border-radius: 20px;
+}
+
+.add--timer--submit {
+  border: none;
+  background: 0;
+}
+
 

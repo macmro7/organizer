@@ -1,9 +1,10 @@
+import plus from "../img/plus.png"
 import { useState } from "react";
 
 function AddTimer(props) {
     const [formData, setFormData] = useState (
         {
-            id: 3,
+            id: "",
             name: "",
             seconds: ""
         }
@@ -21,7 +22,7 @@ function AddTimer(props) {
     function handleSubmit(event) {
         props.handleClick(formData)
         event.preventDefault()
-        setFormData({
+        setFormData({   // clears form after adding a new timer
             id: '',
             name: '',
             seconds: ''
@@ -29,20 +30,20 @@ function AddTimer(props) {
     }
 
     return (
-        <form onSubmit={ handleSubmit }>
-            <input 
+        <form className="add--timer" onSubmit={ handleSubmit }>
+            <input className="add--timer--input"
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
             />
-            <input 
+            <input className="add--timer--input"
                 type="integer"
                 name="seconds"
                 value={formData.seconds}
                 onChange={handleChange}
             />
-            <button>Add Timer</button>
+            <button className="add--timer--submit"><img src={ plus }/></button>
         </form>
     )
 }

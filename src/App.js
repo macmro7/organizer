@@ -12,7 +12,7 @@ function App() {
       {
         id: 1,
         name: "Exercise 1",
-        seconds: 50
+        seconds: 50,
       },
       {
         id: 2,

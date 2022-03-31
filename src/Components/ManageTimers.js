@@ -9,9 +9,11 @@ function ManageTimers(props) {
     return(
         <div>
             <AddTimer handleClick={props.handleClick} />
-            <ul>
-                {timersList}
-            </ul>
+            <div className="timers--background">
+                <ul className="timers--list">
+                    {timersList}
+                </ul>
+            </div>
         </div>
     )
 }
