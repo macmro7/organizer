@@ -28,7 +28,7 @@ function App() {
         {...item}
       />
     )
-  })
+  }).reverse()
 
   function handleClick(newTimer) {
     setTimers(prevTimer => ([

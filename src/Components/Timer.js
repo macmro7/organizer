@@ -35,7 +35,7 @@ function Timer(props) {
 
     return (
         <div className="timer"> 
-            <h1>{ props.name }</h1>
+            <label>{ props.name }</label>
             <div className="circle">
                 <h1 className="circle--timer">{showTime()}</h1>
             <button onClick={startTimer}>{isActive ? "Stop" : "Start"}</button>

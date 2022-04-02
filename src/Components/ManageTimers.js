@@ -7,14 +7,14 @@ function ManageTimers(props) {
         <li key={timer.id}>{timer.name} {timer.seconds} 
             <button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button>
         </li>
-    ))
+    )).reverse()
     
     return(
         <div>
             <AddTimer handleClick={props.handleClick} />
             <div className="timers--background">
                 <ul className="timers--list">
-                    {timersList}
+                    { timersList }
                 </ul>
             </div>
         </div>
