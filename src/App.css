@@ -107,12 +107,33 @@ nav a {
 }
 
 .timers--list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   padding: 1em;
   width: 90%;
   border-bottom: 2px solid rgba(223, 223, 223, 0.226);
 }
 
+.delete--button img{
+  max-width: 1.7em;
+}
+
 .add--timer {
+  margin: 10% 10%;
+  --display: flex;
+  --justify-content: center;
+  --justify-content: space-between;
+  --gap: 2em;
+
+  padding: 2em;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/*.add--timer {
   margin: 10% 10%;
   display: flex;
   --justify-content: center;
@@ -123,6 +144,17 @@ nav a {
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}*/
+
+.add--timer--form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --padding: 1em;
+}
+
+.label {
+
 }
 
 .add--timer--input {
@@ -133,6 +165,8 @@ nav a {
   --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
   max-width: 30%;
+
+  padding: 1em;
 }
 
 .add--timer--input:focus {
@@ -140,16 +174,17 @@ nav a {
   --background: rgb(247, 244, 244);;
 }
 
-.add--timer--input:hover, .add--timer--submit :hover {
+.add--timer--input:hover, .add--timer--submit:hover, .delete--button:hover {
   background: rgb(247, 244, 244);
   border-color: pink;
 }
 
-.add--timer--submit :hover {
+.add--timer--submit:hover, .delete--button:hover {
   border-radius: 20px;
+  --padding: 1em;
 }
 
-.add--timer--submit {
+.add--timer--submit, .delete--button {
   border: none;
   background: 0;
 }

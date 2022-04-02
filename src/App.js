@@ -40,13 +40,25 @@ function App() {
     ]))
   }
 
+  function handleDelete(event) {
+    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id != event.target.id))
+}
+
   return (
     <div className="App">
       <BrowserRouter>
       <Navbar />
         <Routes>
           <Route path="/" element={ timersList } />
-          <Route path="manage" element={<ManageTimers timers={ timers } handleClick={handleClick}/>} />
+          <Route 
+            path="manage" 
+            element={
+              <ManageTimers 
+                timers={ timers } 
+                handleClick={ handleClick } 
+                handleDelete={ handleDelete }
+              />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
