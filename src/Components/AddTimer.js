@@ -6,7 +6,10 @@ function AddTimer(props) {
         {
             id: "",
             name: "",
-            seconds: ""
+            seconds: "",
+
+            nameError: "",
+            secondsError: ""
         }
     )
 
@@ -19,14 +22,48 @@ function AddTimer(props) {
         })
     }
 
+    function validate() {
+        let nameError = ""
+        let secondsError = ""
+
+        if (!formData.name) {
+            nameError = "Name cannot be blank"
+        }
+
+        if (formData.name.length > 30) {
+            nameError = "Name is too long"
+        }
+
+        if (!formData.seconds) {
+            secondsError = "Time cannot be blank"
+        }
+
+        if (nameError || secondsError) {
+            setFormData(prevFormData => {
+                return {
+                    ...prevFormData,
+                    nameError: nameError,
+                    secondsError: secondsError
+                }
+            })
+            return false
+        }
+
+        return true
+     }
+
     function handleSubmit(event) { // event ???
-        props.handleClick(formData)
         event.preventDefault()
-        setFormData({   // clears form after adding a new timer
-            id: '',
-            name: '',
-            seconds: ''
-        })
+        const isValid = validate()
+
+        if (isValid) {
+            props.handleClick(formData)
+            setFormData({   // clears form after adding a new timer
+                id: '',
+                name: '',
+                seconds: ''
+            })
+        }
     }
 
     function handleDelete(event) {
@@ -52,20 +89,28 @@ function AddTimer(props) {
 
     return (
         <div className="add--timer">
-            <h1 className="add--timer--label">Add timer</h1>
+            <label className="add--timer--label">Add timer</label>
             <form className="add--timer--form" onSubmit={ handleSubmit }>
-                <input className="add--timer--input"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                />
-                <input className="add--timer--input"
-                    type="integer"
-                    name="seconds"
-                    value={formData.seconds}
-                    onChange={handleChange}
-                />
+                <div className="input--box">
+                    <input className="add--timer--input"
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                    />
+                    <label>{ formData.nameError }</label>
+                </div>
+                <div className="input--box">
+                    <input className="add--timer--input"
+                        type="integer"
+                        name="seconds"
+                        placeholder="Time"
+                        value={formData.seconds}
+                        onChange={handleChange}
+                    />
+                    <label>{ formData.secondsError }</label>
+                </div>
                 <button className="add--timer--submit"><img src={ plus }/></button>
             </form>
         </div>
