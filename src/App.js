@@ -12,20 +12,41 @@ function App() {
       {
         id: 1,
         name: "Exercise 1",
-        seconds: 50,
+        seconds: 30,
+        isComplete: false,
       },
       {
         id: 2,
         name: "Exercise 2",
-        seconds: 90
+        seconds: 60,
+        isComplete: false,
+      },
+      {
+        id: 3,
+        name: "Exercise 3",
+        seconds: 1,
+        isComplete: false,
       }
   ])
+
+  function changeCompletion(id) {
+    setTimers(prevTimer => (
+      [
+        ...prevTimer.slice(0,id - 1),
+        {
+          ...prevTimer[id - 1],
+          isComplete: !prevTimer[id - 1].isComplete
+        },
+        ...prevTimer.slice(id)
+    ]))
+  }
   
   const timersList = timers.map(item => {
     return (
       <Timer 
         key={item.id}
         {...item}
+        changeCompletion={ changeCompletion }
       />
     )
   }).reverse()

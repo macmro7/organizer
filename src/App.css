@@ -11,6 +11,11 @@ body {
   background-color: rgb(247, 244, 244);
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 nav {
   background: pink;
   padding: 0;
@@ -53,7 +58,7 @@ nav a {
 }
 
 .circle {
-  border: 6px solid pink;    
+  border: 6px solid;    
   border-radius: 50%;
   height: 250px;
   width: 250px;
@@ -64,30 +69,29 @@ nav a {
   gap: 3em;
 }
 
+.timer--not--completed {
+  border-color: pink;
+}
+
+.timer--completed {
+  border-color: #518a6e;
+}
+
 .circle--timer {
   font-size: 50px;
 }
 
+.icon--pause {
+  width: 5em;
+}
+
+.icon--play {
+  width: 5em;
+  margin-left: 1em;
+}
+
+
 /* ManageTimers */
-
-/*.timers--background {
-  border: 1em solid black;
-  width: 30em;
-  background-color: rgba(255, 213, 220, 0.877);
-  background-repeat: no-repeat;
-  background-size: 1em;
-}*/
-
-/*.timers--background {
-  display: absolute;
-  padding: 5em;
-  min-height: 10em;
-  height: 50%;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -ms-box-shadow: none;
-}*/
 
 .timers--list {
   margin: 10% 10%;

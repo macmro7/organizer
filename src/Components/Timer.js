@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 
+import play from '../img/play.svg'
+import pause from '../img/pause.svg'
+
 function Timer(props) {
     const [seconds, setSeconds] = useState(props.seconds);
     const [isActive, setIsActive] = useState(false)
 
     function startTimer() {
-        setIsActive(prevIsActive => !prevIsActive)
+        if (props.isComplete == false ) {
+            setIsActive(prevIsActive => !prevIsActive)
+        }
     }
 
     useEffect(() => {
         let interval
-        
-        if (seconds === 0) {    // nie jestem pewien, czy to powinno byc wewnatrz useEffect
-            setIsActive(false)
-        }
 
         if (isActive) {
+            if (seconds === 0) {    // not sure if this is supposed to be inside useEffect
+                setIsActive(false)
+                props.changeCompletion(props.id)    // something might be wrong
+            }
+
             interval = setInterval(() => {
                 setSeconds(prevSeconds => prevSeconds - 1);
             }, 1000);
@@ -36,9 +42,13 @@ function Timer(props) {
     return (
         <div className="timer"> 
             <label>{ props.name }</label>
-            <div className="circle">
+            <div className={`circle ${props.isComplete ? 'timer--completed' : 'timer--not--completed'}`}>
                 <h1 className="circle--timer">{showTime()}</h1>
-            <button onClick={startTimer}>{isActive ? "Stop" : "Start"}</button>
+            <button onClick={startTimer}>
+                {isActive ? 
+                    <img className="icon--pause" src={ pause }/> :
+                    <img className="icon--play" src={ play }/> } 
+            </button>
             </div>
         </div>
     )
