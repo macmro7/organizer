@@ -72,7 +72,9 @@ function App() {
   }
 
   function handleDelete(event) {
-    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id !== event.target.id))
+    console.log(timers.id)
+    console.log(event.target.id)
+    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id !== parseInt(event.target.id))) // != didn't go trough build
 }
 
   return (
