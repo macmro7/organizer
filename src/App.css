@@ -25,7 +25,7 @@ nav {
   background: pink;
   padding: 0;
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 nav ul{
@@ -63,7 +63,7 @@ nav a:hover {
 
   max-width: fit-content;
 
-  font-size: 30px;
+  font-size: 24px;
 
   background-color: white;
   border-radius: 15px;
@@ -98,12 +98,12 @@ nav a:hover {
 }
 
 .icon--play {
-  width: 5em;
+  width: 4em;
   margin-left: 1em;
 }
 
 .icon--pause {
-  width: 5em;
+  width: 4em;
 }
 
 
@@ -131,7 +131,7 @@ nav a:hover {
   width: 30%;
   font-weight: 300;
   border-bottom: 2px solid rgba(223, 223, 223, 0.226);
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .timers--table > thead tr > td  {
