@@ -88,27 +88,6 @@ function AddTimer(props) {
         }
     }
 
-    // function handleDelete(event) {
-    //     /*setFormData(prevFormData => {
-    //         const id = event.target.id
-    //         return {
-    //             ...prevFormData,
-     
-    //         }
-    //     })*/
-
-    //     /*setFormData({people: this.state.people.filter(function(person) { 
-    //         return person !== e.target.value 
-    //     })});*/
-    //     const newArray = formData.filter(formData => formData.id === 1)
-    //     console.log(newArray)
-
-    //     setFormData((formData) => formData.filter(formData => formData.id === 1))
-        
-
-    //     //console.log("essa")
-    // }
-
     return (
         <div className="add--timer">
             <form className="add--timer--form" onSubmit={ handleSubmit }>

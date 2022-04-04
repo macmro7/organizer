@@ -31,7 +31,7 @@ function Timer(props) {
         return () => clearInterval(interval);
     }, [isActive, seconds, props]); // might be wrong
 
-    function showTime() {   // oblicza ile minut i sekund wyswietlic
+    function showTime() { 
         const minutes = Math.floor(seconds / 60)
         const secondsLeft = seconds - 60 * minutes
 

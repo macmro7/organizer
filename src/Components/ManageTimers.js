@@ -2,39 +2,7 @@ import { Link } from 'react-router-dom';
 import trash from "../img/trash.png"
 
 function ManageTimers(props) {
-
-    /*const timersList = props.timers.map((timer) => (
-        <li key={timer.id}>{timer.name}
-            <button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button>
-        </li>
-    )).reverse()*/
-
-    /*const timersList = props.timers.map((timer) => (
-        <ul>
-            <li>
-                {timer.name}
-            </li>
-            <li>
-                {timer.seconds}
-            </li>
-            <li>
-                <button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button>
-            </li>
-        </ul>
-    )).reverse()*/
     
-    // return(
-    //     <div>
-    //         <AddTimer handleClick={props.handleClick} />
-    //         <div className="timers--background">
-    //             <ul className="timers--list">
-    //                 { timersList }
-    //             </ul>
-    //         </div> 
-    //     </div>
-    // )
-
-
     const timersList = props.timers.map((timer) => (
         <tr key={ timer.id }>
             <td>{ timer.name }</td>
@@ -44,7 +12,6 @@ function ManageTimers(props) {
         </tr>
     )).reverse()
 
-    // <AddTimer handleClick={props.handleClick} />
     return(
         <div>
             <table className="timers--table">
