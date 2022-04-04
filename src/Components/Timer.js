@@ -5,7 +5,6 @@ import pause from '../img/pause.svg'
 
 function Timer(props) {
     const [seconds, setSeconds] = useState(parseInt(props.seconds) + parseInt(props.minutes) * 60)
-    const [minutes, setMinutes] = useState(props.minutes)
     const [isActive, setIsActive] = useState(false)
 
     function startTimer() {

@@ -35,10 +35,11 @@ function ManageTimers(props) {
     //     </div>
     // )
 
+
     const timersList = props.timers.map((timer) => (
         <tr key={ timer.id }>
             <td>{ timer.name }</td>
-            <td>{ timer.minutes } : { timer.seconds }</td>
+            <td>{ timer.minutes < 10 ? '0' + timer.minutes : timer.minutes } : { timer.seconds < 10 ? '0' + timer.seconds : timer.seconds }</td>
             <td>{ timer.targetRep }</td>
             <td><button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button></td>
         </tr>
