@@ -9,7 +9,7 @@ function AddTimer(props) {
             name: "",
             minutes: "",
             seconds: "",
-            targetRep: '',
+            targetRep: "",
             currentRep: 0,
 
             nameError: "",
@@ -51,18 +51,18 @@ function AddTimer(props) {
             minutesError = "This field is required"
         }
 
-        if (!formData.repError) {
+        if (!formData.targetRep) {
             repError = "This field is required"
         }
 
-        if (nameError || secondsError) {
+        if (nameError || secondsError || minutesError || repError) {
             setFormData(prevFormData => {
                 return {
                     ...prevFormData,
                     nameError: nameError,
                     secondsError: secondsError,
                     minutesError: minutesError,
-                    repError: repError
+                    repError: repError,
                 }
             })
             return false
@@ -147,11 +147,11 @@ function AddTimer(props) {
                     <input className="add--timer--input"
                         type="number"
                         name="targetRep"
-                        placeholder="Rep"
+                        placeholder="Repetitions"
                         value={formData.targetRep}
                         onChange={handleChange}
                     />
-                    <label>{ formData.secondsError }</label>
+                    <label>{ formData.repError }</label>
                 </div>
                 
                 <button className="add--timer--submit"><img src={ plus }/></button>

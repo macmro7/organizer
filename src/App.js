@@ -12,7 +12,7 @@ function App() {
       {
         id: 1,
         name: "Exercise 1",
-        seconds: 30,
+        seconds: 20,
         minutes: 1,
         isComplete: false,
         currentRep: 0,
@@ -21,20 +21,20 @@ function App() {
       {
         id: 2,
         name: "Exercise 2",
-        seconds: 2,
+        seconds: 30,
         minutes: 0,
         isComplete: false,
         currentRep: 0,
-        targetRep: 1
+        targetRep: 2
       },
       {
         id: 3,
         name: "Exercise 3",
-        seconds: 1,
-        minutes: 1,
+        seconds: 5,
+        minutes: 0,
         isComplete: false,
         currentRep: 0,
-        targetRep: 2,
+        targetRep: 1,
       }
   ])
 
