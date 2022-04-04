@@ -29,7 +29,7 @@ function Timer(props) {
 
         
         return () => clearInterval(interval);
-    });
+    }, [isActive, seconds, props]); // might be wrong
 
     function showTime() {   // oblicza ile minut i sekund wyswietlic
         const minutes = Math.floor(seconds / 60)
