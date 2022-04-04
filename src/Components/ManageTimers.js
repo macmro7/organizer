@@ -52,7 +52,7 @@ function ManageTimers(props) {
                     <tr className="timers--table--headers">
                         <td>Name</td>
                         <td>Time</td>
-                        <td>Number of repetitions</td>
+                        <td>Rep.</td>
                     </tr>
                 </thead>
                 <tbody>
