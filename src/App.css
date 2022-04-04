@@ -21,6 +21,7 @@ nav {
   background: pink;
   padding: 0;
   margin: 0;
+  font-size: 20px;
 }
 
 nav ul{
@@ -42,36 +43,46 @@ nav a:hover {
   color: white
 }
 
+
+/* Timer */
+
 .timer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  padding: 3em;
+  padding: 2em 4em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5em;
 
-  margin: 10% 10%;
+  max-width: fit-content;
+
+  font-size: 30px;
+
+  background-color: white;
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: white;
-  --background-color: rgba(255, 211, 219, 0.445);
 }
 
 .timer label {
-  font-size: 2em;
+  font-size: 1.4em;
   margin-bottom: 0.8em;
 }
 
 .circle {
-  border: 6px solid;    
-  border-radius: 50%;
-  height: 20em;
-  width: 20em;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 3em;
+  gap: 1.4em;
+  
+  height: 13em;
+  width: 13em;
+  
+  border: 7px solid;    
+  border-radius: 50%;
 }
 
 .timer--not--completed {
@@ -82,76 +93,24 @@ nav a:hover {
   border-color: #518a6e;
 }
 
-.circle--timer {
-  font-size: 50px;
-  /*
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 4em;
-  */
+.icon--play {
+  width: 5em;
+  margin-left: 1em;
 }
 
 .icon--pause {
   width: 5em;
 }
 
-.icon--play {
-  width: 5em;
-  margin-left: 1em;
-}
-
 
 /* ManageTimers */
-
-/* .timers--list {
-  margin: 10% 10%;
-  padding: 2em;
-
-  display: flex;
-  --align-items: center;
-  --justify-content: center;
-  flex-direction: column;
-  gap: 2em;
-
-  border-radius: 15px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-color: white;
-  --background-color: rgba(255, 211, 219, 0.445);
-
-  max-height: 600px;
-  overflow: scroll;
-  
-  list-style-type: none;
-  
-} */
-
-/*
-.timers--list li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 1em;
-  width: 90%;
-  border-bottom: 2px solid rgba(223, 223, 223, 0.226);
-}*/
-
-/*
-.timers--list ul {
-  padding: 1em;
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  --background-color: #518a6e;
-}
-*/
 
 .timers--table {
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
-  width: 80%;
+  --width: 80%;
+  max-width: fit-content;
   padding: 1em 2em;
   
   border-radius: 15px;
@@ -275,4 +234,19 @@ nav a:hover {
   background: 0;
 }
 
+@media (max-width: 768px) {
+  nav {
+    font-size: 16px;
+  }
+
+  .timer {
+    font-size: 20px;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .timer img {
+    width: 4em;
+  }
+}
 
