@@ -13,19 +13,28 @@ function App() {
         id: 1,
         name: "Exercise 1",
         seconds: 30,
+        minutes: 1,
         isComplete: false,
+        currentRep: 0,
+        targetRep: 1,
       },
       {
         id: 2,
         name: "Exercise 2",
-        seconds: 60,
+        seconds: 2,
+        minutes: 0,
         isComplete: false,
+        currentRep: 0,
+        targetRep: 1
       },
       {
         id: 3,
         name: "Exercise 3",
         seconds: 1,
+        minutes: 1,
         isComplete: false,
+        currentRep: 0,
+        targetRep: 2,
       }
   ])
 
@@ -35,7 +44,8 @@ function App() {
         ...prevTimer.slice(0,id - 1),
         {
           ...prevTimer[id - 1],
-          isComplete: !prevTimer[id - 1].isComplete
+          isComplete: prevTimer[id - 1].currentRep >= prevTimer[id - 1].targetRep - 1 && true,  // it works due to - 1, but i think there's something wrong with useEffect
+          currentRep: prevTimer[id - 1].currentRep + 1
         },
         ...prevTimer.slice(id)
     ]))
@@ -51,7 +61,7 @@ function App() {
     )
   }).reverse()
 
-  function handleClick(newTimer) {
+  function addTimer(newTimer) {
     setTimers(prevTimer => ([
       ...prevTimer,
       {
@@ -76,10 +86,10 @@ function App() {
             element={
               <ManageTimers 
                 timers={ timers } 
-                handleClick={ handleClick } 
                 handleDelete={ handleDelete }
               />}
           />
+          <Route path="/add" element={ <AddTimer handleClick={ addTimer } />} />
         </Routes>
       </BrowserRouter>
     </div>

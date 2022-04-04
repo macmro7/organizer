@@ -1,22 +1,65 @@
+import { Link } from 'react-router-dom';
 import AddTimer from "./AddTimer"
 import trash from "../img/trash.png"
 
 function ManageTimers(props) {
 
-    const timersList = props.timers.map((timer) => (
-        <li key={timer.id}>{timer.name} {timer.seconds} 
+    /*const timersList = props.timers.map((timer) => (
+        <li key={timer.id}>{timer.name}
             <button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button>
         </li>
-    )).reverse()
+    )).reverse()*/
+
+    /*const timersList = props.timers.map((timer) => (
+        <ul>
+            <li>
+                {timer.name}
+            </li>
+            <li>
+                {timer.seconds}
+            </li>
+            <li>
+                <button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button>
+            </li>
+        </ul>
+    )).reverse()*/
     
+    // return(
+    //     <div>
+    //         <AddTimer handleClick={props.handleClick} />
+    //         <div className="timers--background">
+    //             <ul className="timers--list">
+    //                 { timersList }
+    //             </ul>
+    //         </div> 
+    //     </div>
+    // )
+
+    const timersList = props.timers.map((timer) => (
+        <tr key={ timer.id }>
+            <td>{ timer.name }</td>
+            <td>{ timer.minutes } : { timer.seconds }</td>
+            <td>{ timer.targetRep }</td>
+            <td><button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button></td>
+        </tr>
+    )).reverse()
+
+    // <AddTimer handleClick={props.handleClick} />
     return(
         <div>
-            <AddTimer handleClick={props.handleClick} />
-            <div className="timers--background">
-                <ul className="timers--list">
+            <table className="timers--table">
+                <thead>
+                    <tr className="timers--table--headers">
+                        <td>Name</td>
+                        <td>Time</td>
+                        <td>Number of repetitions</td>
+                    </tr>
+                </thead>
+                <tbody>
                     { timersList }
-                </ul>
-            </div>
+                </tbody>
+            </table>
+            <Link className="link" to="/add"><button className="add--timer--button">Add timer</button></Link>
         </div>
     )
 }

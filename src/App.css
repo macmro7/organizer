@@ -14,6 +14,7 @@ body {
 button {
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 nav {
@@ -60,8 +61,8 @@ nav a {
 .circle {
   border: 6px solid;    
   border-radius: 50%;
-  height: 250px;
-  width: 250px;
+  height: 20em;
+  width: 20em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +80,12 @@ nav a {
 
 .circle--timer {
   font-size: 50px;
+  /*
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 4em;
+  */
 }
 
 .icon--pause {
@@ -93,12 +100,12 @@ nav a {
 
 /* ManageTimers */
 
-.timers--list {
+/* .timers--list {
   margin: 10% 10%;
   padding: 2em;
 
   display: flex;
-  align-items: center;
+  --align-items: center;
   --justify-content: center;
   flex-direction: column;
   gap: 2em;
@@ -113,8 +120,9 @@ nav a {
   
   list-style-type: none;
   
-}
+} */
 
+/*
 .timers--list li {
   display: flex;
   align-items: center;
@@ -123,20 +131,78 @@ nav a {
   padding: 1em;
   width: 90%;
   border-bottom: 2px solid rgba(223, 223, 223, 0.226);
+}*/
+
+/*
+.timers--list ul {
+  padding: 1em;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  --background-color: #518a6e;
+}
+*/
+
+.timers--table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width: 80%;
+  padding: 2em;
+  
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+
+  display: block;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.timers--table tbody > tr > td, .timers--table thead > tr > td {
+  padding: 1em;
+  border-bottom: 2px solid rgba(223, 223, 223, 0.226);
+  width: 30%;
+  font-weight: 300;
+}
+
+.timers--table > thead tr > td  {
+  border: none;
+  font-weight: 500;
 }
 
 .delete--button img{
   max-width: 1.7em;
 }
 
+.add--timer--button {
+  font-size: 1.2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  width: 30%;
+
+  padding: 1em;
+
+  border-radius: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: pink;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.add--timer--button:hover {
+  background-color: rgb(233, 177, 186);
+}
+
 
 /* Add timer form */
 
 .add--timer {
-  margin: 10% 10%;
-  --display: flex;
-  --justify-content: center;
-  --justify-content: space-between;
+  margin: 10% 20%;
   --gap: 2em;
 
   padding: 2em;
@@ -150,24 +216,11 @@ nav a {
   --margin-left: 0.5em;
 }
 
-/*.add--timer {
-  margin: 10% 10%;
-  display: flex;
-  --justify-content: center;
-  justify-content: space-between;
-  --gap: 2em;
-
-  padding: 2em;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}*/
-
 .add--timer--form {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  --padding: 1em;
+  --justify-content: center;
 }
 
 .input--box {
@@ -185,7 +238,8 @@ nav a {
   border-bottom: 3px solid rgba(22, 22, 22, 0.226);
   --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   outline: none;
-  max-width: 50%;
+  max-width: 100%;
+  --min-width: 100%;
 
   padding: 1em;
 }
