@@ -46,8 +46,8 @@ function Timer(props) {
                 <h1 className="circle--timer">{showTime()}</h1>
                 <button onClick={startTimer}>
                     {isActive ? 
-                        <img className="icon--pause" src={ pause }/> :
-                        <img className="icon--play" src={ play }/> } 
+                        <img className="icon--pause" src={ pause } alt="pause"/> :
+                        <img className="icon--play" src={ play } alt="play"/> } 
                 </button>
                 <h1>{ props.currentRep } / { props.targetRep }</h1>
             </div>

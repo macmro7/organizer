@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import AddTimer from "./AddTimer"
 import trash from "../img/trash.png"
 
 function ManageTimers(props) {
@@ -41,7 +40,7 @@ function ManageTimers(props) {
             <td>{ timer.name }</td>
             <td>{ timer.minutes < 10 ? '0' + timer.minutes : timer.minutes } : { timer.seconds < 10 ? '0' + timer.seconds : timer.seconds }</td>
             <td>{ timer.targetRep }</td>
-            <td><button className="delete--button" ><img onClick={ props.handleDelete } id={timer.id} src= { trash } /></button></td>
+            <td><button className="delete--button" ><img onClick={ props.handleDelete } alt="delete" id={timer.id} src= { trash } /></button></td>
         </tr>
     )).reverse()
 

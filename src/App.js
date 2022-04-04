@@ -72,7 +72,7 @@ function App() {
   }
 
   function handleDelete(event) {
-    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id != event.target.id))
+    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id !== event.target.id))
 }
 
   return (

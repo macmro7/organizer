@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import plus from "../img/plus.png"
 
 function AddTimer(props) {
@@ -88,26 +88,26 @@ function AddTimer(props) {
         }
     }
 
-    function handleDelete(event) {
-        /*setFormData(prevFormData => {
-            const id = event.target.id
-            return {
-                ...prevFormData,
+    // function handleDelete(event) {
+    //     /*setFormData(prevFormData => {
+    //         const id = event.target.id
+    //         return {
+    //             ...prevFormData,
      
-            }
-        })*/
+    //         }
+    //     })*/
 
-        /*setFormData({people: this.state.people.filter(function(person) { 
-            return person !== e.target.value 
-        })});*/
-        const newArray = formData.filter(formData => formData.id === 1)
-        console.log(newArray)
+    //     /*setFormData({people: this.state.people.filter(function(person) { 
+    //         return person !== e.target.value 
+    //     })});*/
+    //     const newArray = formData.filter(formData => formData.id === 1)
+    //     console.log(newArray)
 
-        setFormData((formData) => formData.filter(formData => formData.id === 1))
+    //     setFormData((formData) => formData.filter(formData => formData.id === 1))
         
 
-        //console.log("essa")
-    }
+    //     //console.log("essa")
+    // }
 
     return (
         <div className="add--timer">
@@ -154,7 +154,7 @@ function AddTimer(props) {
                     <label>{ formData.repError }</label>
                 </div>
                 
-                <button className="add--timer--submit"><img src={ plus }/></button>
+                <button className="add--timer--submit"><img src={ plus } alt="plus"/></button>
             </form>
         </div>
     )
