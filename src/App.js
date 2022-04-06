@@ -78,8 +78,6 @@ function App() {
       ] 
       })
     }
-
-    console.log(timers)
   
   function handleDelete(event) {
     setTimers(prevTimers => prevTimers.filter((timer) => timer.id !== parseInt(event.target.id))) //parse wont be needed after changning types
