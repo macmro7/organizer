@@ -49,12 +49,32 @@ function AddTimer(props) {
             secondsError = "This field is required"
         }
 
+        if (formData.seconds.length > 5 || formData.seconds > 59) {
+            secondsError = "Number is too long"
+        }
+
+        if (formData.seconds < 0) {
+            secondsError = "Number cannot be negative"
+        }
+
         if (!formData.minutes) {
             minutesError = "This field is required"
         }
 
+        if (formData.minutes.length > 4) {
+            minutesError = "Number is too long"
+        }
+
+        if (formData.minutes < 0) {
+            minutesError = "Number cannot be negative"
+        }
+
         if (!formData.targetRep) {
             repError = "This field is required"
+        }
+
+        if (formData.targetRep < 0) {
+            repError = "Number cannot be negative"
         }
 
         if (nameError || secondsError || minutesError || repError) {
