@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import plus from "../img/plus.png"
 
 function AddTimer(props) {
+    const { handleClick } = props
+
     const [formData, setFormData] = useState (
         {
             id: "",
@@ -76,7 +78,7 @@ function AddTimer(props) {
         const isValid = validate()
 
         if (isValid) {
-            props.handleClick(formData)
+            handleClick(formData)
             setFormData({   // clears form after adding a new timer
                 id: '',
                 name: '',
