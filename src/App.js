@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 
 import Navbar from "./Components/Navbar"
@@ -7,38 +7,40 @@ import AddTimer from "./Components/AddTimer"
 import ManageTimers from "./Components/ManageTimers"
 import './App.css';
 
-function App() {
-  const [timers, setTimers] = useState([
-      {
-        id: 1,
-        name: "Exercise 1",
-        seconds: 20,
-        minutes: 1,
-        isComplete: false,
-        currentRep: 0,
-        targetRep: 1,
-      },
-      {
-        id: 2,
-        name: "Exercise 2",
-        seconds: 30,
-        minutes: 0,
-        isComplete: false,
-        currentRep: 0,
-        targetRep: 2
-      },
-      {
-        id: 3,
-        name: "Exercise 3",
-        seconds: 5,
-        minutes: 0,
-        isComplete: false,
-        currentRep: 0,
-        targetRep: 1,
-      }
-  ])
+const timersInitialState = [
+  {
+    id: 1,
+    name: "Exercise 1",
+    seconds: 20,
+    minutes: 1,
+    isComplete: false,
+    currentRep: 0,
+    targetRep: 1,
+  },
+  {
+    id: 2,
+    name: "Exercise 2",
+    seconds: 3,
+    minutes: 0,
+    isComplete: false,
+    currentRep: 0,
+    targetRep: 2
+  },
+  {
+    id: 3,
+    name: "Exercise 3",
+    seconds: 5,
+    minutes: 0,
+    isComplete: false,
+    currentRep: 0,
+    targetRep: 1,
+  }
+]
 
-  function changeCompletion(id) {
+function App() {
+  const [timers, setTimers] = useState(timersInitialState)
+
+  /*function changeCompletion(id) {
     setTimers(prevTimer => (
       [
         ...prevTimer.slice(0,id - 1),
@@ -49,8 +51,40 @@ function App() {
         },
         ...prevTimer.slice(id)
     ]))
+  }*/
+
+  function changeCompletion(id) {
+    const newTimers = timers.map((timer) => ({ ...timer}))
+    const timerToUpdateIndex = newTimers.findIndex((timer) => timer.id === id)
+    const timerToUpdate = newTimers[timerToUpdateIndex]
+    const updatedTimer = {
+      ...timerToUpdate,
+      currentRep: timerToUpdate.currentRep + 1,
+      isComplete: timerToUpdate.currentRep + 1 >= timerToUpdate.targetRep
+    }
+    newTimers[timerToUpdateIndex] = updatedTimer
+    setTimers(newTimers)
   }
+
+  function addTimer(newTimer) {
+    setTimers(prevTimer => {
+      const nextId = Math.max(...prevTimer.map((timer) => timer.id)) + 1
+      return [
+        ...prevTimer,
+        {
+          ...newTimer,
+          id: nextId
+        }
+      ] 
+      })
+    }
+
+    console.log(timers)
   
+  function handleDelete(event) {
+    setTimers(prevTimers => prevTimers.filter((timer) => timer.id !== parseInt(event.target.id))) //parse wont be needed after changning types
+  }
+
   const timersList = timers.map(item => {
     return (
       <Timer 
@@ -61,41 +95,26 @@ function App() {
     )
   }).reverse()
 
-  function addTimer(newTimer) {
-    setTimers(prevTimer => ([
-      ...prevTimer,
-      {
-        ...newTimer,
-        id: prevTimer.length + 1
-      }
-    ]))
-  }
-
-  function handleDelete(event) {
-    console.log(timers.id)
-    console.log(event.target.id)
-    setTimers(prevTimers => prevTimers.filter(prevTimers => prevTimers.id !== parseInt(event.target.id))) // != didn't go trough build
-}
 
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path="/" element={ timersList } />
+          <Route path='/' element={ timersList } />
           <Route 
-            path="manage" 
+            path='manage' 
             element={
               <ManageTimers 
                 timers={ timers } 
                 handleDelete={ handleDelete }
               />}
           />
-          <Route path="/add" element={ <AddTimer handleClick={ addTimer } />} />
+          <Route path='/add' element={ <AddTimer handleClick={ addTimer } />} />
         </Routes>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
